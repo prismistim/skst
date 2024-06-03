@@ -1,7 +1,10 @@
 {
 	"type": "module",
 	"scripts": {
-		"dev": "bun run --hot src/index.ts"
+		"dev": "vite",
+		"build": "vite build --mode client && vite build",
+		"preview": "wrangler pages dev ./dist",
+		"deploy": "$npm_execpath run build && wrangler pages deploy ./dist"
 	},
 	"dependencies": {
 		"hono": "^4.4.0"
@@ -10,6 +13,7 @@
 		"@biomejs/biome": "1.7.3",
 		"@types/bun": "latest",
 		"autoprefixer": "^10.4.19",
+		"honox": "^0.1.18",
 		"postcss": "^8.4.38",
 		"tailwindcss": "^3.4.3",
 		"vite": "^5.2.12"
